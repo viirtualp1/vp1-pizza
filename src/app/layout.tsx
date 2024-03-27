@@ -1,21 +1,24 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import type { Metadata } from "next"
 
-import "@/assets/scss/main.scss";
+import { AppNav } from "@/components/AppNav"
+import "@/assets/scss/main.scss"
 
 export const metadata: Metadata = {
   title: "VpPizza",
   description: "VpPizza - delicious pizza",
-};
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <AppNav />
+        {children}
+      </body>
     </html>
-  );
+  )
 }

@@ -1,0 +1,22 @@
+.pizza-modal {
+  width: 700px;
+
+  &__info {
+    margin-bottom: 10px;
+    color: grey;
+    font-size: 14px;
+  }
+
+  &__button {
+    width: 200px;
+    height: 44px;
+    align-self: flex-end;
+  }
+
+  .modal__body {
+    display: flex;
+    flex-direction: column;
+    height: 70%;
+    justify-content: space-between;
+  }
+}

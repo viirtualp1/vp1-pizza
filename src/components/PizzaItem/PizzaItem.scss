@@ -8,8 +8,8 @@
   cursor: pointer;
   width: 47%;
 
-  @include media-lg-up {
-    width: 25%;
+  @include media-md-up {
+    width: 22%;
   }
 
   &__content {

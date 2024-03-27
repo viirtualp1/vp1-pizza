@@ -1,3 +1,5 @@
+import { StaticImageData } from "next/image"
+
 export enum Sizes {
   SMALL = 0,
   AVERAGE = 1,
