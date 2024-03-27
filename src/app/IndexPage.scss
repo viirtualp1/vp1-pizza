@@ -1,0 +1,18 @@
+@import "@/assets/scss/main";
+
+.index-page {
+  &__title {
+    margin: 32px 0;
+    font-weight: 600;
+  }
+
+  &__pizzas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    @include media-lg-up {
+      gap: 38px;
+    }
+  }
+}

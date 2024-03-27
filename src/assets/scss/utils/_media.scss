@@ -1,0 +1,35 @@
+@mixin media-sm-down() {
+  @media (max-width: $breakpoint-sm) {
+    @content;
+  }
+}
+
+@mixin media-sm-up() {
+  @media (min-width: $breakpoint-sm) {
+    @content;
+  }
+}
+
+@mixin media-md-down() {
+  @media (max-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin media-md-up() {
+  @media (min-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin media-lg-down() {
+  @media (max-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+@mixin media-lg-up() {
+  @media (min-width: $breakpoint-lg) {
+    @content;
+  }
+}

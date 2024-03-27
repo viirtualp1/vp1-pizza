@@ -1,0 +1,23 @@
+@import "@/assets/scss/main";
+
+.button {
+  min-width: 120px;
+  min-height: 40px;
+  padding: 8px 20px;
+  appearance: none;
+  border: none;
+  outline: none;
+  background-color: $color-secondary;
+  color: $color-text;
+  border-radius: 24px;
+  font-size: 16px;
+  line-height: 24px;
+  font-family: $base-font-family;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: darken(#fff0e6, 5%);
+  }
+}
