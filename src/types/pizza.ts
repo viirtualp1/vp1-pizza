@@ -12,14 +12,14 @@ export enum Dough {
 }
 
 export interface AdditiveProductData {
-  image: string
+  image: Object
   name: string
   price: number
 }
 
 export interface PizzaData {
   id: number
-  image: StaticImageData | string
+  image: Object
   name: string
   structure: string
   price: number

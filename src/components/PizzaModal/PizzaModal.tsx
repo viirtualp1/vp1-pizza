@@ -30,24 +30,8 @@ export const PizzaModal: FC<Props> = ({ pizza, isOpen, close }) => {
         <div className="pizza-modal__info">
           {pizza.radius} см, традиционное тесто, {pizza.weight} г
         </div>
+
         <div className="pizza-modal__structure">{pizza.structure}</div>
-
-        <div className="pizza-modal__additives-title">Добавить по вкусу</div>
-
-        <div className="pizza-modal__additives">
-          {pizza.additives.map((additive, idx) => (
-            <div className="pizza-modal__additive" key={idx}>
-              <Image
-                src={additive.image}
-                alt="additive"
-                width={30}
-                height={30}
-              />
-
-              {additive.name}
-            </div>
-          ))}
-        </div>
 
         <div className="pizza-modal__sizes">
           {pizza.sizes.map((size, idx) => (
@@ -69,6 +53,30 @@ export const PizzaModal: FC<Props> = ({ pizza, isOpen, close }) => {
               onClick={() => setCurrentDough(idx)}
             >
               <div className="pizza-modal__size-text">{doughs[dough]}</div>
+            </div>
+          ))}
+        </div>
+
+        <div className="pizza-modal__additives-title">Добавить по вкусу</div>
+
+        <div className="pizza-modal__additives">
+          {pizza.additives.map((additive, idx) => (
+            <div className="pizza-modal__additive" key={idx}>
+              <Image
+                src={additive.image}
+                class="pizza-modal__additive-image"
+                width="100"
+                alt="additive"
+              />
+
+              <div className="pizza-modal__additive-info">
+                <div className="pizza-modal__additive-name">
+                  {additive.name}
+                </div>
+                <div className="pizza-modal__additive-price">
+                  {additive.price} ₽
+                </div>
+              </div>
             </div>
           ))}
         </div>

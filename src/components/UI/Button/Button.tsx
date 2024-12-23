@@ -22,7 +22,17 @@ export const Button: FC<ButtonData> = ({
   const classes = useRef(`button ${className} is-${theme}`)
 
   useEffect(() => {
-    classes.current = `button ${className} is-${theme}`
+    let tempClasses = []
+
+    if (className) {
+      tempClasses.push(className)
+    }
+
+    if (theme) {
+      tempClasses.push(`is-${theme}`)
+    }
+
+    classes.current = `button ${tempClasses.join(" ")}`
   }, [className, theme])
 
   const ButtonLink = (

@@ -1,8 +1,8 @@
 import { FC, ReactNode } from "react"
 import Image from "next/image"
-import { default as ReactModal } from "react-modal"
+import ReactModal from "react-modal"
 import { Button } from "../UI/Button"
-import CloseIcon from "@/assets/images/close.svg"
+import { XCircleIcon } from "lucide-react"
 import "./Modal.scss"
 
 interface Props {
@@ -34,7 +34,7 @@ export const Modal: FC<Props> = ({
           <div className="modal__title">{title}</div>
 
           <Button onClick={close}>
-            <Image src={CloseIcon} alt="close" />
+            <XCircleIcon />
           </Button>
         </div>
         <div className="modal__body">{children}</div>

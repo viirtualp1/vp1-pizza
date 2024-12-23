@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import Modal from "react-modal"
 import { generateRandomPizzasArray } from "@/mock/pizza"
 import { PizzaData } from "@/types/pizza"
 import { PizzaItem } from "@/components/PizzaItem"
@@ -13,8 +14,10 @@ export default function IndexPage() {
     setPizzas(generateRandomPizzasArray())
   }, [])
 
+  Modal.setAppElement("#app")
+
   return (
-    <main className="container content index-page">
+    <main className="container content index-page" id="app">
       <h1 className="index-page__title">Пиццы</h1>
 
       <section className="index-page__pizzas">

@@ -1,3 +1,4 @@
+@use "sass:color";
 @import "@/assets/scss/main";
 
 .button {
@@ -23,7 +24,7 @@
     color: #fff;
 
     &:hover {
-      background-color: darken(#ff6900, 5%);
+      background-color: color.scale($color-accent, $lightness: -5%);
     }
   }
 
@@ -31,7 +32,7 @@
     background-color: $color-secondary;
 
     &:hover {
-      background-color: darken(#fff0e6, 5%);
+      background-color: color.adjust($color-secondary, $lightness: -5%);
     }
   }
 }

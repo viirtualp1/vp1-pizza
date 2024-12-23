@@ -4,6 +4,9 @@ import { AdditiveProductData, Dough, PizzaData, Sizes } from "@/types/pizza"
 import Pizza1Image from "@/assets/images/pizza1.webp"
 import Pizza2Image from "@/assets/images/pizza2.webp"
 
+import Additive1Image from "@/assets/images/additive1.png"
+import Additive2Image from "@/assets/images/additive2.png"
+
 const PIZZA_NAMES = [
   "Пепперони",
   "Ветчина и сыр",
@@ -26,16 +29,15 @@ function getRandomItem<T>(array: T[]): T {
   return array[randomIndex]
 }
 
-// Функция для генерации случайной пиццы
 function generateRandomPizza(id: number): PizzaData {
   const additives: AdditiveProductData[] = [
-    { image: "additive1.jpg", name: "Добавка 1", price: 1.99 },
-    { image: "additive2.jpg", name: "Добавка 2", price: 2.49 },
+    { image: Additive1Image, name: "Пряная говадина", price: 1.99 },
+    { image: Additive2Image, name: "Сырный бортик", price: 2.49 },
   ]
 
   return {
     id: id,
-    image: getRandomItem<StaticImageData>(PIZZA_IMAGES),
+    image: getRandomItem<Object>(PIZZA_IMAGES),
     name: getRandomItem<string>(PIZZA_NAMES),
     structure: "Рандомный состав",
     price: Math.floor(Math.random() * (1000 - 500) + 500),
@@ -43,7 +45,7 @@ function generateRandomPizza(id: number): PizzaData {
     weight: Math.floor(Math.random() * (1000 - 500) + 500),
     sizes: [Sizes.SMALL, Sizes.AVERAGE, Sizes.BIG],
     dough: [Dough.TRADITIONAL, Dough.SUBTLE],
-    additives: [getRandomItem(additives)],
+    additives: [getRandomItem(additives), getRandomItem(additives)],
   }
 }
 

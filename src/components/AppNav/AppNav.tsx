@@ -1,9 +1,9 @@
 import { FC } from "react"
-import "./AppNav.scss"
-import { Button } from "../UI/Button"
 import Image from "next/image"
-import LogoIcon from "@/assets/images/logo.svg"
 import Link from "next/link"
+import { Button } from "../UI/Button"
+import "./AppNav.scss"
+import LogoIcon from "@/assets/images/logo.svg"
 
 export const AppNav: FC = () => {
   return (
