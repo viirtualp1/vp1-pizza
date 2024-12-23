@@ -1,5 +1,5 @@
 import { StaticImageData } from "next/image"
-import { Sizes, Dough, PizzaData, AdditiveProductData } from "@/types/pizza"
+import { AdditiveProductData, Dough, PizzaData, Sizes } from "@/types/pizza"
 
 import Pizza1Image from "@/assets/images/pizza1.webp"
 import Pizza2Image from "@/assets/images/pizza2.webp"
@@ -28,8 +28,6 @@ function getRandomItem<T>(array: T[]): T {
 
 // Функция для генерации случайной пиццы
 function generateRandomPizza(id: number): PizzaData {
-  const sizes = [Sizes.SMALL, Sizes.AVERAGE, Sizes.BIG]
-  const dough = [Dough.TRADITIONAL, Dough.SUBTLE]
   const additives: AdditiveProductData[] = [
     { image: "additive1.jpg", name: "Добавка 1", price: 1.99 },
     { image: "additive2.jpg", name: "Добавка 2", price: 2.49 },
@@ -43,8 +41,8 @@ function generateRandomPizza(id: number): PizzaData {
     price: Math.floor(Math.random() * (1000 - 500) + 500),
     radius: Math.floor(Math.random() * (40 - 20) + 20),
     weight: Math.floor(Math.random() * (1000 - 500) + 500),
-    sizes: [getRandomItem(sizes)],
-    dough: [getRandomItem(dough)],
+    sizes: [Sizes.SMALL, Sizes.AVERAGE, Sizes.BIG],
+    dough: [Dough.TRADITIONAL, Dough.SUBTLE],
     additives: [getRandomItem(additives)],
   }
 }
