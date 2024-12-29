@@ -1,6 +1,6 @@
 "use client"
 
-import { FC, ReactNode, useEffect, useRef } from "react"
+import { FC, ReactNode, useEffect, useRef, useState } from "react"
 import Link from "next/link"
 import "./Button.scss"
 
@@ -9,6 +9,7 @@ interface ButtonData {
   className?: string
   to?: string
   theme?: "accent" | "secondary"
+  prependIcon?: JSX.Element
   onClick?: () => void
 }
 
@@ -17,9 +18,10 @@ export const Button: FC<ButtonData> = ({
   className,
   to,
   theme = "secondary",
+  prependIcon,
   onClick,
 }) => {
-  const classes = useRef(`button ${className} is-${theme}`)
+  const [classes, setClasses] = useState(`button ${className} is-${theme}`)
 
   useEffect(() => {
     let tempClasses = []
@@ -32,18 +34,22 @@ export const Button: FC<ButtonData> = ({
       tempClasses.push(`is-${theme}`)
     }
 
-    classes.current = `button ${tempClasses.join(" ")}`
+    setClasses(`button ${tempClasses.join(" ")}`)
   }, [className, theme])
 
   const ButtonLink = (
-    <Link href={to || ""} className={classes.current}>
+    <Link href={to || ""} className={classes}>
       {children}
     </Link>
   )
 
   const ButtonSimple = (
-    <button className={classes.current} onClick={onClick}>
-      {children}
+    <button className={classes} onClick={onClick}>
+      <span className="button__body">
+        {prependIcon && <span className="button__icon">{prependIcon}</span>}
+
+        {children}
+      </span>
     </button>
   )
 

@@ -1,4 +1,4 @@
-import { FC } from "react"
+import { FC, useEffect, useState } from "react"
 import Image from "next/image"
 import { PizzaData } from "@/types/pizza"
 import { Button } from "@/components/UI/Button"
@@ -11,11 +11,11 @@ interface Props {
 }
 
 export const PizzaItem: FC<Props> = ({ pizza }) => {
-  const { isOpen, open, close } = useModal()
+  const { isOpen, open: openModal, close: closeModal } = useModal()
 
   return (
     <>
-      <article className="pizza-item" onClick={open}>
+      <article className="pizza-item" onClick={openModal}>
         <main className="pizza-item__content">
           <Image
             className="pizza-item__image"
@@ -33,7 +33,7 @@ export const PizzaItem: FC<Props> = ({ pizza }) => {
         </footer>
       </article>
 
-      <PizzaModal pizza={pizza} isOpen={isOpen} close={close} />
+      <PizzaModal pizza={pizza} isOpen={isOpen} close={closeModal} />
     </>
   )
 }

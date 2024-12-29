@@ -1,5 +1,4 @@
 import { FC, ReactNode } from "react"
-import Image from "next/image"
 import ReactModal from "react-modal"
 import { Button } from "../UI/Button"
 import { XCircleIcon } from "lucide-react"
@@ -10,6 +9,7 @@ interface Props {
   children?: ReactNode
   isOpen: boolean
   className?: string
+  width?: number
   close: () => void
   title: string
 }
@@ -20,6 +20,7 @@ export const Modal: FC<Props> = ({
   isOpen,
   className,
   title,
+  width = 700,
   close,
 }) => {
   return (
@@ -27,6 +28,7 @@ export const Modal: FC<Props> = ({
       isOpen={isOpen}
       onRequestClose={close}
       className={`modal ${className}`}
+      style={{ content: { width } }}
     >
       <div className="modal__prepend">{prepend}</div>
       <div className="modal__content">
