@@ -1,25 +1,24 @@
 "use client"
 
-import { FC, ReactNode, useEffect, useRef, useState } from "react"
-import Link from "next/link"
+import { FC, LegacyRef, ReactNode, useEffect, useState } from "react"
 import "./Button.scss"
 
 interface ButtonData {
   children: ReactNode
   className?: string
-  to?: string
   theme?: "accent" | "secondary"
   prependIcon?: JSX.Element
   onClick?: () => void
+  ref?: LegacyRef<HTMLButtonElement>
 }
 
 export const Button: FC<ButtonData> = ({
   children,
   className,
-  to,
   theme = "secondary",
   prependIcon,
   onClick,
+  ref,
 }) => {
   const [classes, setClasses] = useState(`button ${className} is-${theme}`)
 
@@ -37,21 +36,11 @@ export const Button: FC<ButtonData> = ({
     setClasses(`button ${tempClasses.join(" ")}`)
   }, [className, theme])
 
-  const ButtonLink = (
-    <Link href={to || ""} className={classes}>
+  return (
+    <button ref={ref} className={classes} onClick={onClick}>
+      {prependIcon && <span className="button__icon">{prependIcon}</span>}
+
       {children}
-    </Link>
-  )
-
-  const ButtonSimple = (
-    <button className={classes} onClick={onClick}>
-      <span className="button__body">
-        {prependIcon && <span className="button__icon">{prependIcon}</span>}
-
-        {children}
-      </span>
     </button>
   )
-
-  return to ? ButtonLink : ButtonSimple
 }

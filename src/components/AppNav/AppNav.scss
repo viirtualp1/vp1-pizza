@@ -35,4 +35,18 @@
       color: $color-accent;
     }
   }
+
+  &__count {
+    display: flex;
+    align-items: center;
+  }
+
+  &__count-divider {
+    display: inline-flex;
+    width: 1px;
+    height: 20px;
+    margin: 0 12px;
+    background: rgb(255, 255, 255);
+    opacity: 0.4;
+  }
 }

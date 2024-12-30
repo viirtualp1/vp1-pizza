@@ -3,7 +3,7 @@
 
 .button {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: center;
   padding: 8px 20px;
   appearance: none;
@@ -12,7 +12,6 @@
   color: $color-text;
   border-radius: 24px;
   font-size: 16px;
-  line-height: 24px;
   font-family: $base-font-family;
   font-weight: 500;
   cursor: pointer;
@@ -36,13 +35,8 @@
     }
   }
 
-  &__body {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
   &__icon {
     height: 18px;
+    margin-right: 8px;
   }
 }

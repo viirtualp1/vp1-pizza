@@ -1,9 +1,9 @@
-import { FC, useEffect, useState } from "react"
+import { FC } from "react"
 import Image from "next/image"
 import { PizzaData } from "@/types/pizza"
 import { Button } from "@/components/UI/Button"
-import { PizzaModal } from "../PizzaModal"
 import { useModal } from "@/hooks/useModal"
+import { PizzaModal } from "../PizzaModal"
 import "./PizzaItem.scss"
 
 interface Props {

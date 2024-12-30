@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react"
-import { useAutoAnimate } from "@formkit/auto-animate/react"
+import { FC, useEffect, useState } from "react"
 import "./Selector.scss"
 
 interface Props {
@@ -10,19 +9,16 @@ interface Props {
   onClick?: (idx: number) => void
 }
 
-export default function Selector({
+export const Selector: FC<Props> = ({
   items,
   value,
   itemText,
   className,
   onClick,
-}: Props) {
-  const [parent] = useAutoAnimate()
+}) => {
   const [selected, setSelected] = useState(value)
 
-  useEffect(() => {
-    setSelected(value)
-  }, [value])
+  useEffect(() => setSelected(value), [value])
 
   const handleClick = (index: number) => {
     if (!onClick) return null
@@ -31,7 +27,7 @@ export default function Selector({
   }
 
   return (
-    <div className={`selector ${className}`} ref={parent}>
+    <div className={`selector ${className}`}>
       {items.map((item, idx) => (
         <div
           className={`selector__item ${selected === idx ? "is-active" : ""}`}

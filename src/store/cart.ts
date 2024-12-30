@@ -1,7 +1,7 @@
 import { create } from "zustand"
 import { PizzaData } from "@/types/pizza"
 
-const useCartStore = create((set, get) => ({
+export const useCartStore = create((set, get) => ({
   cartItems: [] as PizzaData[],
 
   addToCart: (item: PizzaData) => {
@@ -59,5 +59,3 @@ const useCartStore = create((set, get) => ({
     return currentCart.reduce((total, item) => total + item.quantity, 0)
   },
 }))
-
-export default useCartStore

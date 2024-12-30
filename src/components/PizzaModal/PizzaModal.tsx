@@ -1,11 +1,11 @@
-import { FC, useEffect, useState } from "react"
+import { FC, useState } from "react"
 import Image from "next/image"
 import { TrashIcon, ShoppingCartIcon } from "lucide-react"
+import { useCartStore } from "@/store/cart"
 import { PizzaData } from "@/types/pizza"
 import { Modal } from "@/components/Modal"
 import { Button } from "../UI/Button"
 import { Selector } from "../UI/Selector"
-import useCartStore from "@/store/cart"
 import "./PizzaModal.scss"
 
 interface Props {
@@ -18,8 +18,7 @@ const sizes = ["Маленькая", "Средняя", "Большая"]
 const doughs = ["Традиционное", "Тонкое"]
 
 export const PizzaModal: FC<Props> = ({ pizza, isOpen, close }) => {
-  const { addToCart, removeFromCart } = useCartStore()
-  const cartItems = useCartStore((state) => state.cartItems)
+  const { cartItems, addToCart, removeFromCart } = useCartStore()
   const isAddedToCart = cartItems.some((item) => item.id === pizza.id)
 
   const [currentSize, setCurrentSize] = useState(0)
