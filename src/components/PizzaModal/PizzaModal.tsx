@@ -1,4 +1,4 @@
-import { FC, useState } from "react"
+import { FC, useEffect, useState } from "react"
 import Image from "next/image"
 import { TrashIcon, ShoppingCartIcon } from "lucide-react"
 import { useCartStore } from "@/store/cart"
@@ -19,10 +19,14 @@ const doughs = ["Традиционное", "Тонкое"]
 
 export const PizzaModal: FC<Props> = ({ pizza, isOpen, close }) => {
   const { cartItems, addToCart, removeFromCart } = useCartStore()
-  const isAddedToCart = cartItems.some((item) => item.id === pizza.id)
 
+  const [isAddedToCart, setIsAddedToCart] = useState(false)
   const [currentSize, setCurrentSize] = useState(0)
   const [currentDough, setCurrentDough] = useState(0)
+
+  useEffect(() => {
+    setIsAddedToCart(cartItems.some((item) => item.id === pizza.id))
+  }, [cartItems, pizza.id])
 
   const handleAddToCart = () => {
     isAddedToCart ? removeFromCart(pizza.id) : addToCart(pizza)

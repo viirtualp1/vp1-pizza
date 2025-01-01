@@ -1,11 +1,22 @@
 @import "@/assets/scss/main";
 
 .app-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  position: sticky;
+  top: 20px;
+  z-index: 1;
+  background-color: #fff;
+  border-radius: 20px;
 
   &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 0 8px 0 rgba(34, 60, 80, 0.2);
+    border-radius: 20px;
+    padding: 12px 24px;
+  }
+
+  &__body {
     display: flex;
     align-items: center;
     gap: 20px;
@@ -14,6 +25,9 @@
   &__title {
     font-size: 30px;
     font-weight: 700;
+    text-decoration: none;
+    color: #ff6900;
+    text-shadow: 0 0 2px #242000;
   }
 
   &__list {
